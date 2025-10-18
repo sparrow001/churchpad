@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pad Player</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top-left">
+        <button id="signinBtn" class="small">Sign In</button>
+        <button id="logoutBtn" class="small" hidden>Log Out</button>
+      </div>
+      <div class="top-right">
+        <label class="toggle">
+          <input type="checkbox" id="useRemote" />
+          Use Remote DB
+        </label>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="pad-grid" id="padGrid" aria-label="Pad Buttons"></div>
+
+      <div class="controls">
+        <button id="playBtn" class="btn">▶ Play</button>
+        <button id="pauseBtn" class="btn">❚❚ Pause</button>
+        <button id="stopBtn" class="btn">■ Stop</button>
+      </div>
+
+      <div id="masterVolumeContainer">
+        <label for="masterVolume" style="color: var(--muted)">Master</label>
+        <input
+          type="range"
+          id="masterVolume"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+        />
+        <span id="masterVolumeValue">100%</span>
+      </div>
+      <div id="trackContainer">
+        <input
+          type="range"
+          id="trackHead"
+          min="0"
+          max="100"
+          value="0"
+          step="0.1"
+        />
+        <div id="timeDisplay">
+          <span id="elapsedTime">0:00</span>
+          <span>/</span>
+          <span id="totalTime">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="busyCue">Transitioning…</div>
+    <div id="notify"></div>
+
+    <!-- Firebase and modules (player) -->
+    <script type="module">
+      import "./js/firebase.js"; // initializes firebase
+      import "./js/auth.js"; // wires basic sign-in/out UI
+      import { PlayerController } from "./js/player.js";
+
+      // Wire UI elements into PlayerController
+      const playerCtrl = new PlayerController({
+        elements: {
+          padGrid: document.getElementById("padGrid"),
+          playBtn: document.getElementById("playBtn"),
+          pauseBtn: document.getElementById("pauseBtn"),
+          stopBtn: document.getElementById("stopBtn"),
+          trackHead: document.getElementById("trackHead"),
+          elapsedTime: document.getElementById("elapsedTime"),
+          totalTime: document.getElementById("totalTime"),
+          masterVolume: document.getElementById("masterVolume"),
+          masterVolumeValue: document.getElementById("masterVolumeValue"),
+          busyCue: document.getElementById("busyCue"),
+          notifyEl: document.getElementById("notify"),
+          useRemote: document.getElementById("useRemote"),
+          signinBtn: document.getElementById("signinBtn"),
+          logoutBtn: document.getElementById("logoutBtn"),
+        },
+        config: {
+          padsJsonPath: "pads.json",
+          fadeDuration: 1000,
+          transitionStartTime: 2,
+          preFadePadding: 2,
+          dbPath: "/padplayer/current",
+        },
+      });
+
+      window.playerCtrl = playerCtrl;
+    </script>
+  </body>
+</html>

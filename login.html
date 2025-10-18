@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign in — Pad Player</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      "
+    >
+      <div
+        style="
+          width: 360px;
+          padding: 22px;
+          background: rgba(255, 255, 255, 0.03);
+          border-radius: 12px;
+        "
+      >
+        <h2 style="color: var(--accent); margin: 0 0 10px">
+          Pad Player — Sign In
+        </h2>
+        <label style="display: block; color: var(--muted); margin-top: 8px"
+          >Email</label
+        >
+        <input
+          id="email"
+          type="email"
+          style="
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: inherit;
+          "
+        />
+        <label style="display: block; color: var(--muted); margin-top: 8px"
+          >Password</label
+        >
+        <input
+          id="password"
+          type="password"
+          style="
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: inherit;
+          "
+        />
+        <div style="display: flex; gap: 8px; margin-top: 14px">
+          <button id="signin" class="small" style="flex: 1">Sign In</button>
+        </div>
+        <div
+          id="msg"
+          style="color: #f87171; margin-top: 10px; min-height: 18px"
+        ></div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+      // Paste your Firebase config here (same as in js/firebase.js)
+      const firebaseConfig = {
+        apiKey: "AIzaSyD7Kl1at4SaQlxiLMraTl2N-wA3jwfZslg",
+        authDomain: "churchpad-5dc33.firebaseapp.com",
+        databaseURL: "https://churchpad-5dc33-default-rtdb.firebaseio.com",
+        projectId: "churchpad-5dc33",
+        storageBucket: "churchpad-5dc33.firebasestorage.app",
+        messagingSenderId: "671406528727",
+        appId: "1:671406528727:web:0e1d4171ae7519b7b1b892",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const emailEl = document.getElementById("email");
+      const passEl = document.getElementById("password");
+      const signBtn = document.getElementById("signin");
+      const msg = document.getElementById("msg");
+
+      signBtn.addEventListener("click", async () => {
+        msg.textContent = "";
+        try {
+          await signInWithEmailAndPassword(auth, emailEl.value, passEl.value);
+          window.location.href = "index.html";
+        } catch (err) {
+          msg.textContent = err.message || "Sign in failed";
+        }
+      });
+    </script>
+  </body>
+</html>
