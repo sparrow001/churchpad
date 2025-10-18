@@ -2,85 +2,85 @@
     {
         "name": "A",
         "key": "A",
-        "path": "/assets/pads/A.mp3",
+        "path": "assets/pads/A.mp3",
         "volume": 1
     },
     {
         "name": "A#",
         "key": "A#",
-        "path": "/assets/pads/Asharp.mp3",
+        "path": "assets/pads/Asharp.mp3",
         "volume": 1
     },
         {
         "name": "A# Octave",
         "key": "A#8VA",
-        "path": "/assets/pads/Asharp8VA.mp3",
+        "path": "assets/pads/Asharp8VA.mp3",
         "volume": 1
     },
     {
         "name": "B",
         "key": "B",
-        "path": "/assets/pads/B.mp3",
+        "path": "assets/pads/B.mp3",
         "volume": 1
     },
     {
         "name": "C",
         "key": "C",
-        "path": "/assets/pads/C.mp3",
+        "path": "assets/pads/C.mp3",
         "volume": 0.5
     },
         {
         "name": "C Octave",
         "key": "C8VA",
-        "path": "/assets/pads/C8VA.mp3",
+        "path": "assets/pads/C8VA.mp3",
         "volume": 0.5
     },
     {
         "name": "C#",
         "key": "C#",
-        "path": "/assets/pads/Csharp.mp3",
+        "path": "assets/pads/Csharp.mp3",
         "volume": 1
     },
     {
         "name": "D",
         "key": "D",
-        "path": "/assets/pads/D.mp3",
+        "path": "assets/pads/D.mp3",
         "volume": 1
     },
     {
         "name": "D#",
         "key": "D#",
-        "path": "/assets/pads/Dsharp.mp3",
+        "path": "assets/pads/Dsharp.mp3",
         "volume": 1
     },
     {
         "name": "E",
         "key": "E",
-        "path": "/assets/pads/E.mp3",
+        "path": "assets/pads/E.mp3",
         "volume": 1
     },
     {
         "name": "F",
         "key": "F",
-        "path": "/assets/pads/F.mp3",
+        "path": "assets/pads/F.mp3",
         "volume": 1
     },
     {
         "name": "F#",
         "key": "F#",
-        "path": "/assets/pads/Fsharp.mp3",
+        "path": "assets/pads/Fsharp.mp3",
         "volume": 1
     },
     {
         "name": "G",
         "key": "G",
-        "path": "/assets/pads/G.mp3",
+        "path": "assets/pads/G.mp3",
         "volume": 1
     },
     {
         "name": "G#",
         "key": "G#",
-        "path": "/assets/pads/Gsharp.mp3",
+        "path": "assets/pads/Gsharp.mp3",
         "volume": 1
     }
 ]
