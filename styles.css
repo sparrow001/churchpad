@@ -55,7 +55,6 @@ header {
   align-items: center;
   padding: 18px;
   gap: 16px;
-  min-height: calc(100vh - 80px);
 }
 
 /* pad grid */
